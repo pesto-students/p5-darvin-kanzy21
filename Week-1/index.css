@@ -1,0 +1,107 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css);
+}
+@import url(https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/font-awesome-line-awesome/css/all.min.css);
+}
+@import url(https://fonts.googleapis.com/css?family=Lato);
+body {
+    font-family: 'Lato';font-size: 18px;
+}
+.la-2x {
+font-size: 2em;
+}
+.la {
+position: relative;
+display: table-cell;
+width: 3.75rem;
+height: 2.25rem;
+text-align: center;
+vertical-align: middle;
+font-size:1.25rem;
+}
+
+
+/* .main-menu:hover,nav.main-menu.expanded {
+width:250px;
+overflow:visible;
+} */
+
+.main-menu {
+background:#a7aeb4;
+border-right:1px solid #e5e5e5;
+position:absolute;
+top:0;
+bottom:0;
+height:100%;
+left:0;
+width:3.75rem;
+overflow:hidden;
+z-index:1000;
+}
+
+.main-menu>ul {
+    flex-direction: column;
+    display: flex;
+ /* justify-content: space-between; */ /* 1 way to space between flexbox*/
+    height: 100%;
+    text-align: center;
+    /* margin:7px 16px; */
+    row-gap: 3.438rem;   /* 2nd way to space between flexbox*/
+}
+
+.main-menu li {
+position:relative;
+display:block;
+width:100%;
+}
+
+.main-menu li>a {
+position:relative;
+display:table;
+border-collapse:collapse;
+border-spacing:0;
+color:black;
+ font-family: arial;
+font-size: 14px;
+text-decoration:none;
+}
+
+.main-menu .nav-icon {
+position:relative;
+display:table-cell;
+width:3.76rem;
+height:2.25rem;
+text-align:center;
+vertical-align:middle;
+font-size:1.125rem;
+}
+
+
+
+a:hover,a:focus {
+text-decoration:none;
+}
+
+nav {
+-webkit-user-select:none;
+-moz-user-select:none;
+-ms-user-select:none;
+-o-user-select:none;
+user-select:none;
+}
+
+nav ul,nav li {
+outline:0;
+padding:0;
+margin-left: 14%;
+}
+.main-menu li:hover>a,nav.main-menu li.active>a,.dropdown-menu>li>a:hover,.dropdown-menu>li>a:focus,.dropdown-menu>.active>a,.dropdown-menu>.active>a:hover,.dropdown-menu>.active>a:focus,.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,.dashboard-page nav.dashboard-menu ul li.active a {
+color:#fff;
+background-color:#5fa2db;
+}
+
+/* @font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
+} */
