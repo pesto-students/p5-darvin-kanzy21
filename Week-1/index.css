@@ -16,7 +16,7 @@ body {
 }
 
 .main-menu {
-    background: #a7aeb4;
+    background: #f0f0f0;
     border-right: 1px solid #e5e5e5;
     position: absolute;
     top: 0;
@@ -70,9 +70,7 @@ nav li {
     margin-left: 14%;
 }
 
-.main-menu li:hover>i,
-nav.main-menu li.active>i,
-.dropdown-menu>li>i:hover {
+.main-menu li:hover>i {
     cursor: pointer;
     color: #fff;
     background-color: #5fa2db;
@@ -89,7 +87,7 @@ nav.main-menu li.active>i,
   src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
 } */
 .footer {
-    background-color: #484888;
+    background-color: #43689b;
     bottom: 0;
     z-index: 1000;
     position: absolute;
@@ -123,7 +121,7 @@ nav.main-menu li.active>i,
     left: 3.15rem;
     width: 96%;
     top: 0;
-    background-color: #485565ad;
+    background-color: #454545;
 }
 
 .figcaption-container {
@@ -142,7 +140,6 @@ figure {
 }
 
 .fig-controls>p {
-    /* width: 180px; */
     position: relative;
     padding-left: 30px;
     margin-right: 20px;
@@ -152,4 +149,32 @@ figure {
     position: absolute;
     left: 0;
     font-size: 1.5rem;
+}
+
+.table-content {
+    background-color: white;
+}
+.table-content>table tr td:last-child span{
+    padding: 2px;
+    color: blue;
+    border: 1px black solid;
+    cursor: pointer;
+}
+.table-content>table tr td:last-child {
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td,
+th {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
 }
