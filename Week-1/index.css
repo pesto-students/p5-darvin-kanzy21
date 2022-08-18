@@ -4,7 +4,8 @@
 }
 @import url(https://fonts.googleapis.com/css?family=Lato);
 body {
-    font-family: 'Lato';font-size: 18px;
+    font-family: 'Lato';
+    font-size: 18px;
 }
 .la-2x {
 font-size: 2em;
@@ -45,7 +46,7 @@ z-index:1000;
     height: 100%;
     text-align: center;
     /* margin:7px 16px; */
-    row-gap: 3.438rem;   /* 2nd way to space between flexbox*/
+    row-gap: 2.438rem;   /* 2nd way to space between flexbox*/
 }
 
 .main-menu li {
@@ -105,3 +106,22 @@ background-color:#5fa2db;
   font-weight: 300;
   src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
 } */
+.footer{
+    background-color: #475a65;
+    bottom: 0;
+    z-index: 1000;
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    margin: -8px;
+    height: 5rem
+}
+.d-flex {
+    display: flex;
+}
+.justify-between {
+    justify-content: space-between;
+}
+.w-100{
+    width: 100%;
+}
