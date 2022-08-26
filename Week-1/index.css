@@ -1,0 +1,185 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css);
+}
+
+@import url(https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/font-awesome-line-awesome/css/all.min.css);
+}
+
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700);
+
+@font-face {
+    font-family: "Lato";
+    src: url('fonts/lato-light-webfont.woff') format('woff'),
+        url('fonts/Lato-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+}
+
+.la-2x {
+    font-size: 2em;
+}
+
+.main-menu {
+    background: #f0f0f0;
+    border-right: 1px solid #e5e5e5;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    width: 3.75rem;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.main-menu>ul {
+    flex-direction: column;
+    display: flex;
+    /* justify-content: space-between; */
+    /* 1 way to space between flexbox*/
+    height: 100%;
+    text-align: center;
+    /* margin:7px 16px; */
+    row-gap: 2.438rem;
+    /* 2nd way to space between flexbox*/
+}
+
+.main-menu li {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.main-menu li>i {
+    position: relative;
+    display: table;
+    border-collapse: collapse;
+    border-spacing: 0;
+    color: black;
+    text-decoration: none;
+}
+
+nav {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+nav ul,
+nav li {
+    outline: 0;
+    padding: 0;
+    margin-left: 14%;
+}
+
+.main-menu li:hover>i {
+    cursor: pointer;
+    color: #fff;
+    background-color: #5fa2db;
+}
+
+.c-pointer {
+    cursor: pointer;
+}
+
+
+.footer {
+    background-color: #43689b;
+    bottom: 0;
+    z-index: 1000;
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    margin: -8px;
+    height: 5rem;
+    margin-bottom: 0px;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.f-left {
+    float: left;
+}
+
+.area {
+    z-index: 1000;
+    position: absolute;
+    overflow: hidden;
+    left: 3.15rem;
+    width: 96%;
+    top: 0;
+    background-color: #454545;
+}
+
+.figcaption-container {
+    flex-direction: column;
+    row-gap: 100px;
+}
+
+figcaption {
+    color: white;
+    padding: 2px;
+    text-align: center;
+}
+
+figure {
+    display: flex
+}
+
+.fig-controls>p {
+    position: relative;
+    padding-left: 30px;
+    margin-right: 20px;
+}
+
+.fig-controls>p>i {
+    position: absolute;
+    left: 0;
+    font-size: 1.5rem;
+}
+
+.table-content {
+    background-color: white;
+}
+
+.table-content>table tr td:last-child span {
+    padding: 2px;
+    color: blue;
+    border: 1px black solid;
+    cursor: pointer;
+}
+
+.table-content>table tr td:last-child {
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td,
+th {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
