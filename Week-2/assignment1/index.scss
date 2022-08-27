@@ -1,21 +1,44 @@
-header{
+header {
     text-align: center;
 }
-.article-section{
+
+.article-section {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
     text-align: center;
 }
-.article-section > div {
+
+.article-section>div {
     display: flex;
     flex-direction: column;
     flex-basis: 100%;
     flex: 1;
 }
+
+.form-section > form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.submit-btn {
+    width: 200px;
+    height: 30px;
+    background: aqua;
+}
+
+.submit-btn:hover {
+    background-color: azure;
+}
+
+fieldset {
+    margin: 15px;
+}
+
 @media screen and (max-width: 1000px) {
     .article-section {
-      flex-direction: column;
+        flex-direction: column;
     }
-  }
+}

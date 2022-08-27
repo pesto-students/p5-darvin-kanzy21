@@ -62,6 +62,82 @@
             </article>
         </div>
     </section>
+    <section class="form-section">
+        <h2>Form</h2>
+        <form>
+            <fieldset>
+                <legend>Operating System you work on</legend>
+                <label>
+                    <input type="radio" name="os" value="windows">
+                    Windows
+                </label>
+                <label>
+                    <input type="radio" name="os" value="mac">
+                    Mac
+                </label>
+                <label>
+                    <input type="radio" name="os" value="linux">
+                    Linux
+                </label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Favorite JS Frameworks</legend>
+                <label>
+                    <input type="checkbox" name="ck-angular" value="angular">
+                    Angular
+                </label>
+                <label>
+                    <input type="checkbox" name="ck-react" value="react">
+                    React
+                </label>
+                <label>
+                    <input type="checkbox" name="ck-vue" value="vue">
+                    Vue
+                </label>
+            </fieldset>
+
+            <label>
+                Position
+                <select required name="position">
+                    <option value="" selected></option>
+                    <option value="fs">Full Stack</option>
+                    <option value="fe">Front End</option>
+                    <option value="be">Back End</option>
+                    <option value="de">Designer</option>
+                    <option value="pm">Project Manager</option>
+                    <option value="ceo">CEO</option>
+                </select>
+            </label>
+
+            <label>
+                Years of Experience
+                <input required name="exp" type="number">
+            </label>
+
+            <fieldset>
+                <label>
+                    First Name
+                    <input required name="fname" pattern="[A-Za-z-0-9]+\s[A-Za-z-'0-9]+">
+                </label>
+                <label>
+                    Last Name
+                    <input required name="lname" pattern="[A-Za-z-0-9]+\s[A-Za-z-'0-9]+">
+                </label>
+            </fieldset>
+
+            <label>
+                Email
+                <input required name="email" type="email">
+            </label>
+
+            <label>
+                Comments
+                <textarea required name="comments"></textarea>
+            </label>
+            <input class="submit-btn" type="submit" value="Submit this form">
+        </form>
+    </section>
 </body>
 
 </html>
