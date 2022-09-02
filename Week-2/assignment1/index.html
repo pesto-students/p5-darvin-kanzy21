@@ -1,0 +1,145 @@
+<html>
+
+<head>
+    <title>HTML CSS</title>
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="./dist/bundle.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Pesto News</h1>
+        <h2>One stop shop for all the news in tech</h2>
+    </header>
+    <section class="article-section">
+        <div>
+            <article class="item">
+                <h3>What is Lorem Ipsum?</h3>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                    and
+                    scrambled it to make a type specimen book. It has survived not only five centuries, but also the
+                    leap
+                    into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with
+                    the
+                    release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+                    publishing
+                    software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+            </article>
+            <figure class="item">
+                <img
+                    src="https://i.picsum.photos/id/494/200/300.jpg?hmac=YdLwRbrTAzFXaAJcsj854mgNuS5jqYM8bcjCzSrSDRM" />
+            </figure>
+        </div>
+        <div>
+            <article class="item">
+                <h3>Who is Lorem Ipsum?</h3>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                    and
+                    scrambled it to make a type specimen book. It has survived not only five centuries, but also the
+                    leap
+                    into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with
+                    the
+                    release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+                    publishing
+                    software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+            </article>
+            <article class="item">
+                <h3>Why is Lorem Ipsum?</h3>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                    and
+                    scrambled it to make a type specimen book. It has survived not only five centuries, but also the
+                    leap
+                    into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with
+                    the
+                    release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+                    publishing
+                    software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+            </article>
+        </div>
+    </section>
+    <section class="form-section">
+        <h2>Form</h2>
+        <form>
+            <fieldset>
+                <legend>Operating System you work on</legend>
+                <label>
+                    <input type="radio" name="os" value="windows">
+                    Windows
+                </label>
+                <label>
+                    <input type="radio" name="os" value="mac">
+                    Mac
+                </label>
+                <label>
+                    <input type="radio" name="os" value="linux">
+                    Linux
+                </label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Favorite JS Frameworks</legend>
+                <label>
+                    <input type="checkbox" name="ck-angular" value="angular">
+                    Angular
+                </label>
+                <label>
+                    <input type="checkbox" name="ck-react" value="react">
+                    React
+                </label>
+                <label>
+                    <input type="checkbox" name="ck-vue" value="vue">
+                    Vue
+                </label>
+            </fieldset>
+
+            <label>
+                Position
+                <select required name="position">
+                    <option value="" selected></option>
+                    <option value="fs">Full Stack</option>
+                    <option value="fe">Front End</option>
+                    <option value="be">Back End</option>
+                    <option value="de">Designer</option>
+                    <option value="pm">Project Manager</option>
+                    <option value="ceo">CEO</option>
+                </select>
+            </label>
+
+            <label>
+                Years of Experience
+                <input required name="exp" type="number">
+            </label>
+
+            <fieldset>
+                <label>
+                    First Name
+                    <input required name="fname" pattern="[A-Za-z-0-9]+\s[A-Za-z-'0-9]+">
+                </label>
+                <label>
+                    Last Name
+                    <input required name="lname" pattern="[A-Za-z-0-9]+\s[A-Za-z-'0-9]+">
+                </label>
+            </fieldset>
+
+            <label>
+                Email
+                <input required name="email" type="email">
+            </label>
+
+            <label>
+                Comments
+                <textarea required name="comments"></textarea>
+            </label>
+            <input class="submit-btn" type="submit" value="Submit this form">
+        </form>
+    </section>
+</body>
+
+</html>
