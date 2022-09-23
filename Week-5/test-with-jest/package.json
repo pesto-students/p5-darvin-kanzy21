@@ -1,0 +1,14 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "test-with-jest",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "shreyas",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^29.0.3"
+  }
+}
