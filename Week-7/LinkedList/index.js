@@ -43,7 +43,7 @@ class LinkedList {
     // Insert at index
     insertAt(data, index) {
         //  If index is out of range
-        if (index > 0 && index > this.size) {
+        if (index < 0 || index > this.size) {
             return;
         }
 
@@ -125,13 +125,14 @@ class LinkedList {
         let current = this.head;
 
         while (current) {
-            console.log(current);
+            console.log(current.data);
             current = current.next;
         }
     }
+
     // week 7 exercise 1-> reverse the linked list
     reverseList() {                          //{1,2,3,4}
-        // if we use / let previous,next = null/ then the last pointer becomes undefined instead of null. WTF JS!!!
+        // if we use / let previous,next = null / then the last pointer becomes undefined instead of null. WTF JS!!!
         let previous = null;
         let next = null;
         let current = this.head;            //current = 1, current.next = 2
@@ -144,6 +145,34 @@ class LinkedList {
         }
         this.head = previous
         this.printListData()
+    }
+
+    // week 7 exercise 2-> rotate linked list
+    rotateList(NoOfNodes) {                     // nonode = 2
+
+    var count = 1;                              //{100,200,300,400}
+    var last = this.head;                       //{100,200,300,400}
+    var now = this.head;                        //{100,200,300,400}
+
+    if (!this.head || !this.head.next) return this.head;
+
+    while (last.next) {
+        last = last.next;
+        count++;
+    }                                       //last = 4
+
+    NoOfNodes %= count;                     // count =4, NoOfNodes=2
+
+    if (NoOfNodes === 0) return this.head;
+
+    while (NoOfNodes < count - 1) {         // now at 1st itr will be 100, count -1=3, NoOfNodes=2
+        now = now.next;                     
+        NoOfNodes++;
+    }
+    last.next = this.head;
+    this.head = now.next;
+    now.next = null;
+    this.printListData()
     }
 }
 
@@ -161,11 +190,12 @@ ll.printListData();
 console.log('----------Solution for Reversed Linked list----------')
 ll.reverseList();
 ll.clearList();
-
-//   ll.insertAt(500, 3);
-
-// ll.clearList();
-// ll.getAt(2);
-
-//   ll.printListData();
-// ll.reverseList();
+ll.insertFirst(400);
+ll.insertFirst(300);
+ll.insertFirst(200);
+ll.insertFirst(100);
+console.log('----------Normal Linked list----------')
+ll.printListData();
+console.log('----------Solution for Rotate Linked list----------')
+ll.rotateList(2);
+ll.clearList();
