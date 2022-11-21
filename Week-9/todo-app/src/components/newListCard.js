@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
+import { checkIfEmpty } from '../utils/utils'
+
 
 const NewListCard = (props) => {
-    const { editObj } = { ...props }
+    const { editObj, updateEditObj, isEdit,setTodoObj } = { ...props }
     const [newTaskList, setNewTaskList] = useState({
         taskIndex: 1, taskTitle: '', taskList: [{
             isCompleted: false, itemDesc: ''
         }]
     })
     useEffect(() => {
-        if(Object.keys(editObj)?.length){
+        if (Object.keys(editObj)?.length) {
             setNewTaskList(editObj)
         }
     }, [editObj])
@@ -18,7 +20,10 @@ const NewListCard = (props) => {
         switch (field) {
             case 'title':
                 tempTaskList.taskTitle = e?.target?.value;
-                setNewTaskList(tempTaskList)
+                setNewTaskList((prev) => ({
+                    taskTitle:  e?.target?.value,
+                    ...prev
+                }))
                 break;
             case 'task':
                 taskList[itemIndex].itemDesc = e?.target?.value;
@@ -33,27 +38,11 @@ const NewListCard = (props) => {
                     taskList: [...taskList],
                     ...prev
                 }))
-                // setNewTaskList(tempTaskList)
                 break;
             default: return;
         }
     }
-    const filterUnwanted = (arr) => {
-        const required = arr.filter(el => {
-            return el.itemDesc;
-        });
-        if (required?.length === arr?.length) {
-            return true
-        } else {
-            return false
-        }
-    };
-    const checkIfEmpty = (list) => {
-        if (!list?.taskTitle) {
-            return false;
-        }
-        return filterUnwanted(list?.taskList)
-    }
+
     const addNewTask = async () => {
         if (checkIfEmpty(newTaskList)) {
             let tempTaskList = newTaskList?.taskList;
@@ -73,13 +62,25 @@ const NewListCard = (props) => {
             if (localStorage.getItem('todoObj') !== null) {
                 let todoObj = JSON.parse(localStorage.getItem("todoObj"));
                 let tempTask = newTaskList;
-                tempTask.taskIndex = todoObj[todoObj.length - 1].taskIndex + 1;
-
+                tempTask.taskIndex = todoObj.length + 1;
                 todoObj?.unshift(newTaskList)
                 localStorage.setItem('todoObj', JSON.stringify(todoObj));
+                setTodoObj(todoObj)
             } else {
                 localStorage.setItem('todoObj', JSON.stringify([newTaskList]));
+                setTodoObj([newTaskList])
             }
+            setNewTaskList((prev) => ({
+                taskIndex: 1, taskTitle: '', taskList: [{
+                    isCompleted: false, itemDesc: ''
+                }],
+                ...prev
+            }))
+            setNewTaskList({
+                taskIndex: 1, taskTitle: '', taskList: [{
+                    isCompleted: false, itemDesc: ''
+                }]
+            })
         } else {
             alert('title or item desc is empty')
         }
@@ -89,28 +90,28 @@ const NewListCard = (props) => {
             <div className="card">
                 <div className="card-body">
                     <h5 className="card-title">Task list name</h5>
-                    <div class="row mb-3">
-                        <label for="title" class="col-sm-2 col-form-label">List Name</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="title" value={newTaskList?.taskTitle} onChange={(e) => handleChange('title', e)} />
+                    <div className="row mb-3">
+                        <label for="title" className="col-sm-2 col-form-label">List Name</label>
+                        <div className="col-sm-10">
+                            <input type="text" className="form-control" id="title" value={newTaskList?.taskTitle} onChange={(e) => handleChange('title', e)} />
                         </div>
                     </div>
                     <ul className="list-group list-group-flush">
                         {newTaskList?.taskList?.length && newTaskList?.taskList?.map((item, itemIndex) => {
-                            return <li className="list-group-item" key={itemIndex}>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-text">
-                                        <input class="form-check-input mt-0" checked={item?.isCompleted} type="checkbox" onChange={(e) => handleChange('checkbox', e, itemIndex)} aria-label="Checkbox for following text input" />
+                            return <li className="list-group-item" key={itemIndex+'newtask'}>
+                                <div className="input-group mb-3">
+                                    <div className="input-group-text">
+                                        <input className="form-check-input mt-0" checked={item?.isCompleted} type="checkbox" onChange={(e) => handleChange('checkbox', e, itemIndex)} aria-label="Checkbox for following text input" />
                                     </div>
-                                    <input type="text" class="form-control" value={item?.itemDesc} onChange={(e) => handleChange('task', e, itemIndex)} placeholder="Task" aria-label="Text input with checkbox" />
-                                    <div class="input-group-text">
-                                        <button class="btn btn-secondary" type="button" onClick={() => addNewTask()}>Add task</button>
+                                    <input type="text" className="form-control" value={item?.itemDesc} onChange={(e) => handleChange('task', e, itemIndex)} placeholder="Task" aria-label="Text input with checkbox" />
+                                    <div className="input-group-text">
+                                        <button className="btn btn-secondary" type="button" onClick={() => addNewTask()}>Add task</button>
                                     </div>
                                 </div>
                             </li>
                         })}
                     </ul>
-                    <button class="btn btn-primary" type="button" onClick={() => addList()}>Save List</button>
+                    <button className="btn btn-primary" type="button" onClick={() => isEdit ? updateEditObj(newTaskList) : addList()}>Save List</button>
                 </div>
             </div>
         </>

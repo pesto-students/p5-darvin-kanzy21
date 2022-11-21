@@ -15,17 +15,31 @@ const Index = () => {
         setIsEdit(true)
         setEditObj(task)
     }
+    const deleteTask=(task)=>{
+        if (localStorage.getItem('todoObj') !== null) {
+            let todoObj = JSON.parse(localStorage.getItem("todoObj"));
+            todoObj.forEach((item, i) => {
+                if (item?.taskIndex === task?.taskIndex) {
+                    todoObj.splice(i, 1);
+                }
+            });
+            localStorage.setItem('todoObj', JSON.stringify(todoObj));
+            setTodoObj(todoObj);
+            setIsEdit(false);
+        }
+    }
     return (
         <>
-            <div class="container text-center">
-                <NewTask editObj={editObj} setIsEdit={setIsEdit}/>
+            <div className="container text-center">
+                <NewTask editObj={editObj} setIsEdit={setIsEdit} isEdit={isEdit} setTodoObj={setTodoObj}/>
                 {!isEdit &&
-                    <div class="row g-3 mt-3">
+                    <div className="row g-3 mt-3">
                         {todoObj?.map((item, index) => {
-                            return <div class="col-md-4">
+                            return <div className="col-md-4" key={index+'main'}>
                                 <Card
                                     task={item}
                                     editTask={editTask}
+                                    deleteTask={deleteTask}
                                 />
                             </div>
                         })}
