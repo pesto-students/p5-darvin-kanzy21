@@ -2,7 +2,8 @@ import React, { useState, useMemo } from "react";
 import { useToasts } from 'react-toast-notifications';
 
 const URLCard = (props) => {
-    const { addToast } = useToasts();
+    let { setURLObj, setFlag, flag } = { ...props }
+    // const { addToast } = useToasts();
     const [url, setUrl] = useState('');
     const validateURL = () => {
         var pattern = new RegExp('^(http(s)?:\\/\\/)?' + // protocol
@@ -29,21 +30,26 @@ const URLCard = (props) => {
             };
             await fetch(`https://api.shrtco.de/v2/shorten?url=${url}`, requestOptions)
                 .then(response => {
-                    response.json().then((res) => { console.log(res);storeURL(res) });
+                    response.json().then((res) => { console.log(res); storeURL(res) });
                 }).catch((err) => {
-                    addToast('Please try later', { appearance: 'error', autoDismiss: true });
+                    // addToast('Please try later', { appearance: 'error', autoDismiss: true });
                 })
         } else {
-            addToast('Invalid URL', { appearance: 'error', autoDismiss: true });
+            // addToast('Invalid URL', { appearance: 'error', autoDismiss: true });
         }
     }
-    const storeURL = (response)=>{
+    const storeURL = (response) => {
         if (localStorage.getItem('URLObj') !== null) {
             let URLObj = JSON.parse(localStorage.getItem("URLObj"));
             URLObj[url] = response?.result
             localStorage.setItem('URLObj', JSON.stringify(URLObj));
+            setURLObj(URLObj)
+            setFlag(!flag)
+            // addToast('Short URL created', { appearance: 'success', autoDismiss: true });
         } else {
-            localStorage.setItem('URLObj', JSON.stringify({[url] : response?.result}));
+            localStorage.setItem('URLObj', JSON.stringify({ [url]: response?.result }));
+            setURLObj({ [url]: response?.result })
+            // addToast('Short URL created', { appearance: 'success', autoDismiss: true });
         }
     }
 

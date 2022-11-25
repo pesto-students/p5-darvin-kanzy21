@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import sideImg from '../assets/971.jpg'
 import URLCard from './shortURL'
+import URLListing from './URLListing'
 
 const Index = () => {
+    const [urlObj, setURLObj] = useState([])
+    const [flag, setFlag] = useState([])
+
+    useEffect(() => {
+        if (localStorage.getItem('URLObj') !== null) {
+            setURLObj(JSON.parse(localStorage.getItem("URLObj")));
+        } else {
+            localStorage.setItem('URLObj', JSON.stringify({}));
+        }
+    }, [flag])
+
     return (
         <>
             <section id="starter">
@@ -16,21 +28,18 @@ const Index = () => {
                             <img src={sideImg} class=" rounded img-fluid" alt="..." />
                         </div>
                     </div>
-                    <div class="row p-5 ">
-                        <div class="col">
-                           <URLCard/>
-                        </div>
-                        {/* <div class="col">
-                            2 of 3
-                        </div>
-                        <div class="col">
-                            3 of 3
-                        </div> */}
-                    </div>
+
                 </div>
             </section>
             <section id="urlshortner">
-
+                <div class="row p-5 gy-5 ">
+                    <div class="col-12">
+                        <URLCard setURLObj={setURLObj} setFlag={setFlag} flag={flag} />
+                    </div>
+                    <div class="col">
+                        <URLListing urlObj={urlObj} setFlag={setFlag} flag={flag} />
+                    </div>
+                </div>
             </section>
         </>
     );
