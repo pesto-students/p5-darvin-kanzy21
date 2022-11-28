@@ -3,7 +3,7 @@ import { useToasts } from 'react-toast-notifications';
 
 const URLCard = (props) => {
     let { setURLObj, setFlag, flag } = { ...props }
-    // const { addToast } = useToasts();
+    const { addToast } = useToasts();
     const [url, setUrl] = useState('');
     const validateURL = () => {
         var pattern = new RegExp('^(http(s)?:\\/\\/)?' + // protocol
@@ -32,10 +32,10 @@ const URLCard = (props) => {
                 .then(response => {
                     response.json().then((res) => { console.log(res); storeURL(res) });
                 }).catch((err) => {
-                    // addToast('Please try later', { appearance: 'error', autoDismiss: true });
+                    addToast('Please try later', { appearance: 'error', autoDismiss: true });
                 })
         } else {
-            // addToast('Invalid URL', { appearance: 'error', autoDismiss: true });
+            addToast('Invalid URL', { appearance: 'error', autoDismiss: true });
         }
     }
     const storeURL = (response) => {

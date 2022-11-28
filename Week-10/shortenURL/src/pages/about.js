@@ -61,9 +61,6 @@ const About = () => {
                     </div>
                 </div>
             </section>
-            <section id="urlshortner">
-
-            </section>
         </>
     );
 }

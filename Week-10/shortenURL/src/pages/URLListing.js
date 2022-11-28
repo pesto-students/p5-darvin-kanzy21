@@ -3,13 +3,13 @@ import { useToasts } from 'react-toast-notifications';
 import { Clipboard, TrashFill } from 'react-bootstrap-icons';
 
 const URLListing = (props) => {
-    // const { addToast } = useToasts();
+    const { addToast } = useToasts();
 
     let { urlObj, setFlag, flag } = { ...props }
 
     const copyUrl = (url) => {
         navigator.clipboard.writeText(url)
-        // addToast('Short URL copied to clipboard', { appearance: 'success', autoDismiss: true });
+        addToast('Short URL copied to clipboard', { appearance: 'success', autoDismiss: true });
     }
     const deleteObj = (url) => {
         if (localStorage.getItem('URLObj') !== null) {
@@ -17,7 +17,7 @@ const URLListing = (props) => {
             delete URLObj[url];
             localStorage.setItem('URLObj', JSON.stringify(URLObj));
             setFlag(!flag)
-            // addToast('Short URL deleted', { appearance: 'success', autoDismiss: true });
+            addToast('Short URL deleted', { appearance: 'success', autoDismiss: true });
         }
     }
 
